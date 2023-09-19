@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Android Pemula</string>
+    <string name="namaEditText">Nama Mahasiswa</string>
+    <string name="buttonButton">Button</string>
+    <string name="buttonTextView">Halo %1$s</string>
+    <string name="panjang">Panjang</string>
+    <string name="lebar">Lebar</string>
+    <string name="tinggi">Tinggi</string>
+    <string name="hasil">Hasil</string>
+    <string name="cari">cari</string>
+    <string-array name="names">
+        <item>Rafi</item>
+        <item>Kurnia</item>
+        <item>Ilahi</item>
+    </string-array>
+</resources>
