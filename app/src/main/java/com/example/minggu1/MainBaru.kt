@@ -14,6 +14,10 @@ class MainBaru : AppCompatActivity(), View.OnClickListener {
     private lateinit var hasil : TextView
     private lateinit var btn : Button
 
+    companion object{
+        private const val STATE_RESULT = "state_result"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layoutprojekgit)
@@ -25,9 +29,16 @@ class MainBaru : AppCompatActivity(), View.OnClickListener {
 
         btn.setOnClickListener(this)
 
-
+        if(savedInstanceState != null){
+            val textResult = savedInstanceState.getString(STATE_RESULT)
+            hasil.text = textResult
+        }
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(STATE_RESULT, hasil.text.toString())
+    }
     override fun onClick(v: View?) {
         if(v?.id == R.id.tombol){
             var panjang = inputPanjang.text.toString().trim()
@@ -49,10 +60,7 @@ class MainBaru : AppCompatActivity(), View.OnClickListener {
             }
             if(!isempty){
                 val volume = panjang.toDouble() * lebar.toDouble() * tinggi.toDouble()
-                //hasil.text = volume.toString()
-                hasil.text = isempty.toString()
-            }else{
-                hasil.text = isempty.toString()
+                hasil.text = volume.toString()
             }
         }
     }
